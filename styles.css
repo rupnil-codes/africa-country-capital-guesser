@@ -16,7 +16,7 @@ body {
   }
   
   main {
-    flex: 1; /* Grow to fill available space */
+    flex: 1; Grow to fill available space
     display: flex; /* Nested flexbox for content alignment */
     flex-direction: column; /* Stack children vertically */
     align-items: center; /* Center children horizontally */
