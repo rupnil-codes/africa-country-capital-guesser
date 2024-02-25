@@ -37,6 +37,7 @@ body {
   #question {
     /* margin-bottom: 20px; */
     font-size: 2rem;
+    text-align: center;
   }
 
   .questionp{
@@ -49,9 +50,23 @@ body {
     margin-bottom: 15px;
     text-align: center;
   }
+
+  .img1{
+    filter: invert(0.000000001%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(90%) contrast(100%);
+    position: fixed;
+    z-index: -1;
+    width: 23rem;
+    color: #d6d6d6;
+  }
+
+  #score{
+    font-size: medium;
+    margin-bottom: 0.4rem;
+  }
   
   #input-container {
     margin-bottom: 20px;
+    border: none;
   }
   
   #guess {
@@ -90,6 +105,7 @@ body {
   .inp{
     font-size: 1.1em;
     font-family: "Lexend", sans-serif;
+    /* border-color: rgb(201, 201, 201); */
   }
   
 @media screen and (max-width: 400px) {
@@ -99,8 +115,29 @@ body {
     }
 
     #question {
-        font-size: 1.75rem;
+        font-size: 1.5rem;
         text-align: center;
+
+    }
+
+    .img1{
+      width: 12rem;
+    }
+
+    #result {
+      font-size: 1em;
+      text-align: center;
+      font-weight: 500;
+    }
+
+    .smalltext{
+      font-size: 0.75rem;
     }
     
+}
+
+@media screen and (max-width: 702px) {
+  .img1{
+    width: 20rem;
+  }
 }

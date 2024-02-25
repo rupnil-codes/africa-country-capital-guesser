@@ -2,11 +2,11 @@ const countriesAndCapitals = [
     { country: 'Algeria', capital: 'Algiers' },
     // { country: 'Angola', capital: 'Luanda' },
     // { country: 'Benin', capital: 'Porto-Novo' },
-    { country: 'Botswana', capital: 'Bujumbura' },
+    { country: 'Botswana', capital: 'Gaborone' },
     // { country: 'Burkina Faso', capital: 'Ouagadougou' },
-    { country: 'Burundi', capital: 'Gitega' },
+    { country: 'Burundi', capital: 'Bujumbura' },
     // { country: 'Cabo Verde', capital: 'Praia' },
-    { country: 'Cameroon', capital: 'Yaoundé' },
+    { country: 'Cameroon', capital: 'Yaounde' },
     // { country: 'Central African Republic', capital: 'Bangui' },
     // { country: 'Chad', capital: "N'Djamena" },
     { country: 'Comoros', capital: 'Moroni' },
@@ -54,6 +54,9 @@ const countriesAndCapitals = [
     // { country: 'Zimbabwe', capital: 'Harare' }
 ];
 
+let num = 0;
+let numElement = document.getElementById('num');
+
 const countryElement = document.getElementById('type');
 const itemElement = document.getElementById('item');
 const guessInput = document.getElementById('guess');
@@ -64,6 +67,9 @@ let currentItem;
 let currentQuestionIndex = -1; // Start with -1 to force a new question on game start
 
 function displayQuestion() {
+  num++;
+  numElement.textContent = num;
+
   currentQuestionIndex = Math.floor(Math.random() * countriesAndCapitals.length);
   let randomIndex = Math.floor(Math.random() * 2);
   if (randomIndex === 0) {
@@ -84,6 +90,7 @@ function checkAnswer() {
   if ((countryElement.textContent === 'Capital' && userGuess.toLowerCase() === capital.toLowerCase()) ||
       (countryElement.textContent === 'Country' && userGuess.toLowerCase() === country.toLowerCase())) {
     resultElement.textContent = 'Correct!';
+    updateScore();
   } else {
     if (countryElement.textContent === 'Capital') {
       resultElement.textContent = `Incorrect. ${capital} is the capital of ${currentItem}.`;
@@ -100,3 +107,13 @@ submitButton.addEventListener('click', checkAnswer);
 
 // Initial question
 displayQuestion();
+
+// Score
+let score = 0;
+const scoreElement = document.getElementById('score-value');
+scoreElement.textContent = score;
+
+function updateScore() {
+  score++;
+  scoreElement.textContent = score;
+}
