@@ -140,4 +140,8 @@ body {
   .img1{
     width: 20rem;
   }
+
+  #question{
+    font-size: 1.75rem;
+  }
 }
