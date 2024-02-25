@@ -63,6 +63,8 @@ const guessInput = document.getElementById('guess');
 const submitButton = document.getElementById('submit');
 const resultElement = document.getElementById('result');
 
+const percentElement = document.getElementById('percent-value');
+
 let currentItem;
 let currentQuestionIndex = -1; // Start with -1 to force a new question on game start
 
@@ -91,11 +93,14 @@ function checkAnswer() {
       (countryElement.textContent === 'Country' && userGuess.toLowerCase() === country.toLowerCase())) {
     resultElement.textContent = 'Correct!';
     updateScore();
+    updatePercentage();
   } else {
     if (countryElement.textContent === 'Capital') {
       resultElement.textContent = `Incorrect. ${capital} is the capital of ${currentItem}.`;
+      updatePercentage();
     } else {
       resultElement.textContent = `Incorrect. ${country} is the country with capital ${currentItem}.`;
+      updatePercentage();
     }
   }
 
@@ -116,4 +121,10 @@ scoreElement.textContent = score;
 function updateScore() {
   score++;
   scoreElement.textContent = score;
+}
+
+function updatePercentage() {
+  let percent = score / (num) * 100;
+
+  percentElement.textContent = percent;
 }
